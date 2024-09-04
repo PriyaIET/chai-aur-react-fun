@@ -13,7 +13,6 @@ export class AuthServie {
         this.account = new Account(this.client)
     }
 
-
     // SignUp method
     async createAccount({email, passWord, name}){
         try {
@@ -26,6 +25,7 @@ export class AuthServie {
                 return userAccount;
             }
         } catch (error) {
+            console.log("Appwrite Service :: createAccount :: error- ", error);
             throw error;
         }
     }
@@ -35,6 +35,7 @@ export class AuthServie {
         try {
             return await this.account.createEmailSession(email, passWord);
         } catch (error) {
+            console.log("Appwrite Service :: Login :: error- ", error);
             throw error;
         }
     }
